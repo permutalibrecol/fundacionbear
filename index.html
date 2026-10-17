@@ -1,0 +1,839 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundación BEAR | Biomedicine & Bioengineering for Colombian Children</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bear: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            800: '#0c4a6e',
+                            900: '#0f172a',
+                        },
+                        rosebear: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                        },
+                        warmth: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            500: '#f59e0b',
+                        },
+                        crypto: {
+                            btc: '#f7931a',
+                            eth: '#627eea',
+                            usdt: '#26a17b'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .lang-en { display: none; }
+        html { scroll-behavior: smooth; }
+        
+        @keyframes float-gentle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(1deg); }
+        }
+        .bear-float {
+            animation: float-gentle 4s ease-in-out infinite;
+        }
+
+        .tab-active {
+            border-color: #0284c7 !important;
+            background-color: #f0f9ff !important;
+            color: #0369a1 !important;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased font-sans">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-gradient-to-r from-bear-900 via-bear-800 to-slate-900 text-white text-xs font-semibold py-2 px-4 text-center flex justify-center items-center gap-2 border-b border-bear-700/50">
+        <span class="inline-block w-2 h-2 rounded-full bg-rosebear-500 animate-ping"></span>
+        <span class="lang-es">Investigación Pediátrica & Bioingeniería de Impacto Social en Colombia 🇨🇴</span>
+        <span class="lang-en">Pediatric Research & Applied Bioengineering for Social Impact in Colombia 🇨🇴</span>
+    </div>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- LOGO CON OSITO TIERNO Y TECNOLÓGICO -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-bear-500 via-teal-500 to-rosebear-500 p-0.5 shadow-md group-hover:scale-105 transition-transform">
+                        <div class="w-full h-full bg-white rounded-[14px] flex items-center justify-center overflow-hidden relative">
+                            <!-- SVG Osito Tierno Biomed -->
+                            <svg class="w-9 h-9 text-bear-700 bear-float" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Bear Ears -->
+                                <circle cx="28" cy="28" r="14" fill="#38BDF8" />
+                                <circle cx="28" cy="28" r="8" fill="#FB7185" opacity="0.7" />
+                                <circle cx="72" cy="28" r="14" fill="#38BDF8" />
+                                <circle cx="72" cy="28" r="8" fill="#FB7185" opacity="0.7" />
+                                <!-- Bear Head -->
+                                <circle cx="50" cy="52" r="32" fill="#0284C7" />
+                                <!-- Snout -->
+                                <ellipse cx="50" cy="60" rx="16" ry="12" fill="#FFFFFF" />
+                                <ellipse cx="50" cy="55" rx="6" ry="4" fill="#0C4A6E" />
+                                <!-- Eyes -->
+                                <circle cx="38" cy="46" r="4" fill="#FFFFFF" />
+                                <circle cx="39" cy="45" r="1.5" fill="#0C4A6E" />
+                                <circle cx="62" cy="46" r="4" fill="#FFFFFF" />
+                                <circle cx="63" cy="45" r="1.5" fill="#0C4A6E" />
+                                <!-- Pulse Heart Icon -->
+                                <path d="M50 78 L53 74 C56 71 60 74 57 78 L50 84 L43 78 C40 74 44 71 47 74 Z" fill="#F43F5E" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-2xl font-black tracking-tight text-bear-900">BEAR</span>
+                            <span class="text-[10px] bg-rosebear-100 text-rosebear-600 font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Foundation</span>
+                        </div>
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-slate-400 block -mt-1 lang-es">Biomedical Engineering & Research</span>
+                        <span class="text-[10px] uppercase font-bold tracking-widest text-slate-400 block -mt-1 lang-en">Biomedical Engineering & Research</span>
+                    </div>
+                </a>
+
+                <!-- LINKS DE NAVEGACIÓN DESKTOP -->
+                <div class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-600">
+                    <a href="#quienes-somos" class="hover:text-bear-600 transition-colors lang-es">Quiénes Somos</a>
+                    <a href="#quienes-somos" class="hover:text-bear-600 transition-colors lang-en">About Us</a>
+                    <a href="#equipo" class="hover:text-bear-600 transition-colors lang-es">Equipo Directivo</a>
+                    <a href="#equipo" class="hover:text-bear-600 transition-colors lang-en">Leadership</a>
+                    <a href="#ods" class="hover:text-bear-600 transition-colors lang-es">ODS ONU</a>
+                    <a href="#ods" class="hover:text-bear-600 transition-colors lang-en">UN SDGs</a>
+                    <a href="#donaciones" class="hover:text-bear-600 transition-colors lang-es">Donaciones</a>
+                    <a href="#donaciones" class="hover:text-bear-600 transition-colors lang-en">Donations</a>
+                    <a href="#gobernanza" class="hover:text-bear-600 transition-colors lang-es">Transparencia</a>
+                    <a href="#gobernanza" class="hover:text-bear-600 transition-colors lang-en">Transparency</a>
+                </div>
+
+                <!-- BTN DONAR & IDIOMA -->
+                <div class="flex items-center gap-3">
+                    <a href="#donaciones" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-rosebear-500 to-pink-600 hover:from-rosebear-600 hover:to-pink-700 text-white font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all">
+                        <i data-lucide="heart" class="w-4 h-4"></i>
+                        <span class="lang-es">Donar / Apoyar</span>
+                        <span class="lang-en">Donate / Support</span>
+                    </a>
+
+                    <!-- SWITCH ES / EN -->
+                    <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl border border-slate-200">
+                        <button onclick="setLanguage('es')" id="btn-es" class="px-2.5 py-1 text-xs font-bold rounded-lg bg-white text-bear-700 shadow-sm transition-all cursor-pointer">ES</button>
+                        <button onclick="setLanguage('en')" id="btn-en" class="px-2.5 py-1 text-xs font-bold rounded-lg text-slate-500 hover:text-slate-800 transition-all cursor-pointer">EN</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative py-20 lg:py-28 px-4 overflow-hidden bg-gradient-to-b from-bear-900 via-bear-800 to-slate-900 text-white">
+        <div class="absolute inset-0 bg-[radial-gradient(#0284c7_1px,transparent_1px)] [background-size:28px_28px] opacity-20"></div>
+        
+        <div class="max-w-6xl mx-auto text-center relative z-10 space-y-8">
+            <div class="inline-flex items-center gap-2 py-2 px-4 rounded-full text-xs font-semibold bg-bear-500/20 text-bear-200 border border-bear-400/30 backdrop-blur-md">
+                <i data-lucide="sparkles" class="w-4 h-4 text-rosebear-400"></i>
+                <span class="lang-es">Bioingeniería Humana • Sostenibilidad • Infancia Colombiana</span>
+                <span class="lang-en">Human Bioengineering • Sustainability • Colombian Children</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight max-w-5xl mx-auto lang-es">
+                Investigación biomédica de vanguardia con <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-rosebear-100 to-teal-300">ternura y rigor científico</span>
+            </h1>
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight max-w-5xl mx-auto lang-en">
+                Cutting-edge biomedical research with <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-rosebear-100 to-teal-300">compassion & scientific rigor</span>
+            </h1>
+
+            <p class="text-lg sm:text-2xl text-bear-100/90 max-w-3xl mx-auto font-normal leading-relaxed lang-es">
+                Desarrollamos soluciones de bioingeniería, biodispositivos pediátricos adaptados y biotecnología médica para garantizar salud, bienestar y equidad en los niños y poblaciones vulnerables de Colombia.
+            </p>
+            <p class="text-lg sm:text-2xl text-bear-100/90 max-w-3xl mx-auto font-normal leading-relaxed lang-en">
+                We develop bioengineering solutions, adapted pediatric biodevices, and medical biotechnology to foster health, equity, and quality of life for children in Colombia.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#donaciones" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-rosebear-500 to-pink-600 hover:from-rosebear-600 hover:to-pink-700 text-white font-bold rounded-2xl shadow-xl hover:shadow-rosebear-500/30 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+                    <span class="lang-es">Donar e Impulsar la Ciencia</span>
+                    <span class="lang-en">Donate & Support Science</span>
+                </a>
+                <a href="#quienes-somos" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-2xl border border-white/20 transition-all flex items-center justify-center gap-2">
+                    <i data-lucide="info" class="w-5 h-5"></i>
+                    <span class="lang-es">Conoce Nuestro Impacto</span>
+                    <span class="lang-en">Learn About Our Impact</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- METRICS SECTION -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-20">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 flex items-center gap-5 hover:border-bear-200 transition-all">
+                <div class="p-4 bg-bear-50 text-bear-600 rounded-2xl"><i data-lucide="microscope" class="w-8 h-8"></i></div>
+                <div>
+                    <h3 class="text-3xl font-black text-slate-900">+80 Años</h3>
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1 lang-es">Experiencia Combinada del Equipo</p>
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1 lang-en">Combined Multidisciplinary Experience</p>
+                </div>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 flex items-center gap-5 hover:border-rosebear-200 transition-all">
+                <div class="p-4 bg-rosebear-50 text-rosebear-500 rounded-2xl"><i data-lucide="heart-pulse" class="w-8 h-8"></i></div>
+                <div>
+                    <h3 class="text-3xl font-black text-slate-900">100%</h3>
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1 lang-es">Enfocado en Niñez y Vulnerabilidad</p>
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1 lang-en">Focused on Children & Health Equity</p>
+                </div>
+            </div>
+            <div class="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 flex items-center gap-5 hover:border-teal-200 transition-all">
+                <div class="p-4 bg-teal-50 text-teal-600 rounded-2xl"><i data-lucide="coins" class="w-8 h-8"></i></div>
+                <div>
+                    <h3 class="text-3xl font-black text-slate-900">Crypto-Friendly</h3>
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1 lang-es">Aceptamos BTC, ETH, USDT y Fiat</p>
+                    <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider mt-1 lang-en">Accepting BTC, ETH, USDT & Fiat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXTENDED QUIÉNES SOMOS / ABOUT US -->
+    <section id="quienes-somos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-16">
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+            <span class="text-xs font-bold uppercase tracking-widest text-bear-600 bg-bear-50 px-3 py-1 rounded-full border border-bear-200">
+                Sobre Nosotros
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight lang-es">Investigación, Sostenibilidad y Humanismo Pediátrico</h2>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight lang-en">Research, Sustainability & Pediatric Humanism</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <h3 class="text-2xl font-bold text-bear-900 leading-snug lang-es">
+                    Transformamos el acceso a la salud en Colombia mediante bioingeniería de código abierto e investigación de alto nivel.
+                </h3>
+                <h3 class="text-2xl font-bold text-bear-900 leading-snug lang-en">
+                    Transforming healthcare access in Colombia through open-access bioengineering and high-level clinical research.
+                </h3>
+
+                <p class="text-slate-600 leading-relaxed text-base lang-es">
+                    La <strong>Fundación BEAR (Biomedical Engineering & Applied Research)</strong> nace con la firme convicción de que la tecnología biomédica más avanzada debe ser accesible para quienes más la necesitan. En Colombia, miles de niños en zonas rurales y poblaciones en condición de vulnerabilidad carecen de acceso oportuno a diagnóstico temprano, biodispositivos adaptados y tratamientos de rehabilitación.
+                </p>
+                <p class="text-slate-600 leading-relaxed text-base lang-en">
+                    <strong>Fundación BEAR (Biomedical Engineering & Applied Research)</strong> was established to make advanced biomedical technology accessible to vulnerable communities. In Colombia, thousands of children in rural areas lack timely access to early diagnostics, adapted biodevices, and rehabilitation treatments.
+                </p>
+
+                <p class="text-slate-600 leading-relaxed text-base lang-es">
+                    Inspirados por nuestro símbolo —un osito tierno que representa el cuidado, la empatía y la protección de la infancia— integramos a un **equipo multidisciplinar de especialistas** en bioingeniería, ciencias de la salud, ordenamiento territorial, hidrología, desarrollo comunitario y finanzas públicas. Trabajamos bajo un modelo de **sostenibilidad de triple impacto**:
+                </p>
+                <p class="text-slate-600 leading-relaxed text-base lang-en">
+                    Inspired by our mascot —a warm teddy bear representing child care and protection— we bring together a **multidisciplinary team of experts** in bioengineering, health sciences, public policy, and community development working under a **triple-bottom-line sustainability model**:
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                    <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200">
+                        <i data-lucide="leaf" class="w-6 h-6 text-emerald-600 mb-2"></i>
+                        <h4 class="font-bold text-sm text-slate-900 lang-es">Sostenibilidad Ambiental</h4>
+                        <h4 class="font-bold text-sm text-slate-900 lang-en">Environmental</h4>
+                        <p class="text-xs text-slate-500 mt-1 lang-es">Biomateriales reciclables e infraestructura verde.</p>
+                        <p class="text-xs text-slate-500 mt-1 lang-en">Recyclable biomaterials & green infrastructure.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200">
+                        <i data-lucide="users" class="w-6 h-6 text-bear-600 mb-2"></i>
+                        <h4 class="font-bold text-sm text-slate-900 lang-es">Bienestar Social</h4>
+                        <h4 class="font-bold text-sm text-slate-900 lang-en">Social Welfare</h4>
+                        <p class="text-xs text-slate-500 mt-1 lang-es">Atención prioritaria a la niñez colombiana.</p>
+                        <p class="text-xs text-slate-500 mt-1 lang-en">Prioritizing children and vulnerable families.</p>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-rosebear-500 mb-2"></i>
+                        <h4 class="font-bold text-sm text-slate-900 lang-es">Rigor y Ética</h4>
+                        <h4 class="font-bold text-sm text-slate-900 lang-en">Rigor & Ethics</h4>
+                        <p class="text-xs text-slate-500 mt-1 lang-es">Investigación científica avalada y transparente.</p>
+                        <p class="text-xs text-slate-500 mt-1 lang-en">Audited, peer-reviewed scientific research.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD VISUAL SOBRE LA MISION Y VISION -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="bg-gradient-to-br from-bear-900 to-slate-900 text-white p-8 sm:p-10 rounded-3xl shadow-2xl relative overflow-hidden space-y-6">
+                    <div class="absolute -right-8 -bottom-8 opacity-10">
+                        <i data-lucide="dna" class="w-64 h-64 text-white"></i>
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <div class="p-3 bg-rosebear-500 text-white rounded-2xl">
+                            <i data-lucide="target" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold lang-es">Misión Institucional</h4>
+                        <h4 class="text-xl font-bold lang-en">Institutional Mission</h4>
+                    </div>
+
+                    <p class="text-bear-100 text-sm leading-relaxed lang-es">
+                        Investigar, diseñar y desplegar tecnologías biomédicas y de bioingeniería de bajo costo y alta precisión, reduciendo las brechas de salud infantil y generando un impacto social perdurable en Colombia.
+                    </p>
+                    <p class="text-bear-100 text-sm leading-relaxed lang-en">
+                        To research, design, and deploy affordable, high-precision biomedical technology, closing pediatric healthcare gaps across Colombia.
+                    </p>
+
+                    <hr class="border-bear-700/60">
+
+                    <div class="flex items-center gap-3">
+                        <div class="p-3 bg-bear-500 text-white rounded-2xl">
+                            <i data-lucide="eye" class="w-6 h-6"></i>
+                        </div>
+                        <h4 class="text-xl font-bold lang-es">Visión 2031</h4>
+                        <h4 class="text-xl font-bold lang-en">Vision 2031</h4>
+                    </div>
+
+                    <p class="text-bear-100 text-sm leading-relaxed lang-es">
+                        Ser el centro de referencia en bioingeniería social en América Latina, reconocido por la transferencia de patentes abiertas, la articulación científica internacional y el bienestar integral de la niñez.
+                    </p>
+                    <p class="text-bear-100 text-sm leading-relaxed lang-en">
+                        To become Latin America's leading social bioengineering hub, recognized for open-access health technology and child welfare.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OBJETIVOS DE DESARROLLO SOSTENIBLE (ODS / UN SDGs) -->
+    <section id="ods" class="bg-slate-900 text-white py-24 px-4 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto space-y-16 relative z-10">
+            <div class="text-center space-y-3 max-w-3xl mx-auto">
+                <span class="text-xs font-bold uppercase tracking-widest text-teal-400 bg-teal-950 px-3 py-1 rounded-full border border-teal-800">
+                    Compromiso Global ONU
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tight lang-es">Alineación con los Objetivos de Desarrollo Sostenible</h2>
+                <h2 class="text-3xl sm:text-5xl font-black tracking-tight lang-en">Alignment with UN Sustainable Development Goals</h2>
+                <p class="text-slate-400 text-sm sm:text-base lang-es">Nuestra labor de investigación biomédica y bioingeniería aporta de forma directa a la Agenda 2030 de las Naciones Unidas.</p>
+                <p class="text-slate-400 text-sm sm:text-base lang-en">Our biomedical research directly supports the United Nations 2030 Agenda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- ODS 3 -->
+                <div class="bg-slate-800/90 p-8 rounded-3xl border border-emerald-500/30 hover:border-emerald-500 transition-all space-y-4 group">
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-black text-emerald-400">03</span>
+                        <div class="p-3 bg-emerald-500/20 text-emerald-400 rounded-2xl group-hover:bg-emerald-500 group-hover:text-white transition-all">
+                            <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-white lang-es">Salud y Bienestar</h3>
+                    <h3 class="text-lg font-bold text-white lang-en">Good Health & Well-being</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed lang-es">
+                        Investigación en tecnología médica pediátrica, prevención de enfermedades congénitas y tamizaje temprano en niños colombianos.
+                    </p>
+                    <p class="text-slate-400 text-xs leading-relaxed lang-en">
+                        Pediatric medical technology research, prevention, and early screening for vulnerable children.
+                    </p>
+                </div>
+
+                <!-- ODS 9 -->
+                <div class="bg-slate-800/90 p-8 rounded-3xl border border-amber-500/30 hover:border-amber-500 transition-all space-y-4 group">
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-black text-amber-400">09</span>
+                        <div class="p-3 bg-amber-500/20 text-amber-400 rounded-2xl group-hover:bg-amber-500 group-hover:text-white transition-all">
+                            <i data-lucide="cpu" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-white lang-es">Industria e Innovación</h3>
+                    <h3 class="text-lg font-bold text-white lang-en">Industry & Innovation</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed lang-es">
+                        Desarrollo de bioingeniería local, prótesis impresas en 3D y biotecnología médica descentralizada y transferible.
+                    </p>
+                    <p class="text-slate-400 text-xs leading-relaxed lang-en">
+                        Development of local bioengineering, 3D-printed prosthetics, and decentralized healthcare innovation.
+                    </p>
+                </div>
+
+                <!-- ODS 10 -->
+                <div class="bg-slate-800/90 p-8 rounded-3xl border border-pink-500/30 hover:border-pink-500 transition-all space-y-4 group">
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-black text-pink-400">10</span>
+                        <div class="p-3 bg-pink-500/20 text-pink-400 rounded-2xl group-hover:bg-pink-500 group-hover:text-white transition-all">
+                            <i data-lucide="scale" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-white lang-es">Reducción de Desigualdades</h3>
+                    <h3 class="text-lg font-bold text-white lang-en">Reduced Inequalities</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed lang-es">
+                        Democratización del acceso a dispositivos biomédicos avanzados en zonas rurales y marginadas de Colombia.
+                    </p>
+                    <p class="text-slate-400 text-xs leading-relaxed lang-en">
+                        Democratizing access to advanced biomedical devices in rural and underserved communities.
+                    </p>
+                </div>
+
+                <!-- ODS 17 -->
+                <div class="bg-slate-800/90 p-8 rounded-3xl border border-sky-500/30 hover:border-sky-500 transition-all space-y-4 group">
+                    <div class="flex justify-between items-center">
+                        <span class="text-3xl font-black text-sky-400">17</span>
+                        <div class="p-3 bg-sky-500/20 text-sky-400 rounded-2xl group-hover:bg-sky-500 group-hover:text-white transition-all">
+                            <i data-lucide="globe-2" class="w-6 h-6"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-bold text-white lang-es">Alianzas para los Objetivos</h3>
+                    <h3 class="text-lg font-bold text-white lang-en">Partnerships for the Goals</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed lang-es">
+                        Articulación con la cooperación internacional, academias de medicina y sector público-privado para multiplicar el impacto.
+                    </p>
+                    <p class="text-slate-400 text-xs leading-relaxed lang-en">
+                        Collaborating with international donors, medical academia, and private partners for maximum impact.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EQUIPO DIRECTIVO Y CONSULTOR MULTIDISCIPLINAR -->
+    <section id="equipo" class="bg-slate-100/80 py-24 px-4 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto space-y-16">
+            <div class="text-center space-y-3">
+                <span class="text-xs font-bold uppercase tracking-widest text-bear-700 bg-bear-100 px-3 py-1 rounded-full">
+                    Liderazgo Multidisciplinar
+                </span>
+                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight lang-es">Consejo Directivo & Especialistas</h2>
+                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight lang-en">Board of Directors & Senior Staff</h2>
+                <p class="text-slate-500 max-w-2xl mx-auto text-sm font-medium lang-es">
+                    Un equipo interdisciplinario con más de 80 años de experiencia combinada en bioingeniería, gestión pública, desarrollo territorial y salud.
+                </p>
+                <p class="text-slate-500 max-w-2xl mx-auto text-sm font-medium lang-en">
+                    An interdisciplinary team with over 80 years of combined experience in bioengineering, governance, and health equity.
+                </p>
+            </div>
+
+            <!-- CONSEJO EJECUTIVO LÍDER -->
+            <div class="space-y-6">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-bear-800 border-b border-bear-200 pb-2 lang-es">Consejo Ejecutivo Directivo</h3>
+                <h3 class="text-xs font-bold uppercase tracking-widest text-bear-800 border-b border-bear-200 pb-2 lang-en">Executive Board</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Ingrid Cantor -->
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4 hover:shadow-lg transition-all">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-bear-600 text-white flex items-center justify-center font-bold text-xl shadow-md">
+                                IC
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900">Ingrid Cantor</h4>
+                                <p class="text-xs font-bold text-rosebear-600 uppercase tracking-wider lang-es">Directora Ejecutiva & Rep. Legal</p>
+                                <p class="text-xs font-bold text-rosebear-600 uppercase tracking-wider lang-en">Executive Director & Legal Rep</p>
+                            </div>
+                        </div>
+                        <p class="text-xs font-semibold text-slate-400">Esp. en Políticas Públicas, Gobernanza y Desarrollo Comunitario</p>
+                        <p class="text-sm text-slate-600 leading-relaxed lang-es">
+                            Líder con más de 15 años de experiencia en formulación de proyectos sociales, concertación territorial e implementación de políticas de bienestar infantil en Colombia.
+                        </p>
+                        <p class="text-sm text-slate-600 leading-relaxed lang-en">
+                            Expert with over 15 years in public policy formulation, social community development, and territorial governance.
+                        </p>
+                    </div>
+
+                    <!-- Camila Cantor -->
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4 hover:shadow-lg transition-all">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-rosebear-500 text-white flex items-center justify-center font-bold text-xl shadow-md">
+                                CC
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900">Camila Cantor</h4>
+                                <p class="text-xs font-bold text-rosebear-600 uppercase tracking-wider lang-es">Directora de Bioingeniería & Investigación</p>
+                                <p class="text-xs font-bold text-rosebear-600 uppercase tracking-wider lang-en">Director of Bioengineering & Research</p>
+                            </div>
+                        </div>
+                        <p class="text-xs font-semibold text-slate-400">Bioingeniería, Dispositivos Médicos e Innovación en Salud</p>
+                        <p class="text-sm text-slate-600 leading-relaxed lang-es">
+                            Especialista en desarrollo de biodispositivos pediátricos, investigación clínica aplicada y transferencia tecnológica orientada al impacto social y la equidad en salud.
+                        </p>
+                        <p class="text-sm text-slate-600 leading-relaxed lang-en">
+                            Specialist in pediatric medical devices, applied biomedical research, and healthcare technology transfer.
+                        </p>
+                    </div>
+
+                    <!-- Carlos Cantor -->
+                    <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm space-y-4 hover:shadow-lg transition-all">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-slate-800 text-white flex items-center justify-center font-bold text-xl shadow-md">
+                                CC
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-slate-900">Carlos Cantor</h4>
+                                <p class="text-xs font-bold text-rosebear-600 uppercase tracking-wider lang-es">Director de Infraestructura y Conectividad</p>
+                                <p class="text-xs font-bold text-rosebear-600 uppercase tracking-wider lang-en">Director of Infrastructure & Tech</p>
+                            </div>
+                        </div>
+                        <p class="text-xs font-semibold text-slate-400">M.Eng, Ing. Mecánico Industrial, PMO Senior</p>
+                        <p class="text-sm text-slate-600 leading-relaxed lang-es">
+                            Experto en dirección de macroproyectos de infraestructura bajo estándares PMO internacionales (USAID, BID, Banco Mundial) y modelación financiera.
+                        </p>
+                        <p class="text-sm text-slate-600 leading-relaxed lang-en">
+                            Senior expert in large-scale infrastructure project management under PMO international standards (USAID, IDB).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EQUIPO DE CONSULTORES MULTIDISCIPLINARES -->
+            <div class="space-y-6 pt-4">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 border-b border-slate-300 pb-2 lang-es">Equipo Consultor y Técnico Senior (+15 años exp. c/u)</h3>
+                <h3 class="text-xs font-bold uppercase tracking-widest text-slate-500 border-b border-slate-300 pb-2 lang-en">Senior Technical Consultant Staff (+15 yrs exp.)</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white/80 p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                        <div class="p-3 bg-teal-50 text-teal-700 rounded-xl"><i data-lucide="droplet" class="w-6 h-6"></i></div>
+                        <div>
+                            <h4 class="font-bold text-slate-900">Piedad A.</h4>
+                            <p class="text-xs font-semibold text-bear-600 uppercase tracking-wider lang-es">Consultora en Economía Agrícola e Hidrología</p>
+                            <p class="text-xs font-semibold text-bear-600 uppercase tracking-wider lang-en">Agricultural Economics & Hydrology Specialist</p>
+                            <p class="text-xs text-slate-500 mt-1 lang-es">Asesora en sostenibilidad ambiental, recursos hídricos y desarrollo rural integral.</p>
+                            <p class="text-xs text-slate-500 mt-1 lang-en">Advisor in environmental sustainability and rural water infrastructure.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/80 p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
+                        <div class="p-3 bg-bear-50 text-bear-700 rounded-xl"><i data-lucide="map-pin" class="w-6 h-6"></i></div>
+                        <div>
+                            <h4 class="font-bold text-slate-900">Carlos C.</h4>
+                            <p class="text-xs font-semibold text-bear-600 uppercase tracking-wider lang-es">Consultor en Urbanismo y Ordenamiento Territorial</p>
+                            <p class="text-xs font-semibold text-bear-600 uppercase tracking-wider lang-en">Urban & Territorial Planning Consultant</p>
+                            <p class="text-xs text-slate-500 mt-1 lang-es">Especialista en infraestructura física para laboratorios y centros de salud en campo.</p>
+                            <p class="text-xs text-slate-500 mt-1 lang-en">Specialist in health facility planning and territorial logistics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE DONACIONES Y APORTES / CRYPTO FRIENDLY MODULE -->
+    <section id="donaciones" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 space-y-12">
+        <div class="text-center max-w-3xl mx-auto space-y-3">
+            <span class="text-xs font-bold uppercase tracking-widest text-rosebear-600 bg-rosebear-50 px-3 py-1 rounded-full border border-rosebear-200">
+                 Haz la Diferencia
+            </span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight lang-es">Módulos de Donación & Apoyo Financiero</h2>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight lang-en">Donation & Financial Support Channels</h2>
+            <p class="text-slate-600 text-sm sm:text-base lang-es">Somos una fundación <strong>Crypto-Friendly</strong> y multipasarela. Apoya directamente la investigación biomédica de los niños de Colombia.</p>
+            <p class="text-slate-600 text-sm sm:text-base lang-en">We are a <strong>Crypto-Friendly</strong> foundation. Support pediatric biomedical research directly.</p>
+        </div>
+
+        <!-- DONATION TABS CONTAINER -->
+        <div class="bg-white rounded-3xl border border-slate-200 shadow-xl overflow-hidden max-w-4xl mx-auto">
+            <!-- TAB BUTTONS -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 border-b border-slate-200 bg-slate-50 text-xs font-bold uppercase tracking-wider">
+                <button onclick="switchTab('mercadopago')" id="tab-mercadopago" class="p-4 border-b-2 border-transparent hover:text-bear-600 transition-all flex items-center justify-center gap-2 tab-active cursor-pointer">
+                    <i data-lucide="credit-card" class="w-4 h-4 text-sky-500"></i> MercadoPago
+                </button>
+                <button onclick="switchTab('paypal')" id="tab-paypal" class="p-4 border-b-2 border-transparent hover:text-bear-600 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <i data-lucide="globe" class="w-4 h-4 text-blue-600"></i> PayPal
+                </button>
+                <button onclick="switchTab('stripe')" id="tab-stripe" class="p-4 border-b-2 border-transparent hover:text-bear-600 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <i data-lucide="shield" class="w-4 h-4 text-indigo-600"></i> Stripe
+                </button>
+                <button onclick="switchTab('crypto')" id="tab-crypto" class="p-4 border-b-2 border-transparent hover:text-bear-600 transition-all flex items-center justify-center gap-2 cursor-pointer bg-amber-50/50">
+                    <i data-lucide="coins" class="w-4 h-4 text-amber-500"></i> Crypto ⚡
+                </button>
+            </div>
+
+            <!-- TAB CONTENT PANELS -->
+            <div class="p-8 sm:p-10">
+                <!-- MERCADOPAGO -->
+                <div id="content-mercadopago" class="space-y-6 text-center sm:text-left">
+                    <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 lang-es">Donaciones en Colombia (COP)</h3>
+                            <h3 class="text-xl font-bold text-slate-900 lang-en">Donations in Colombia (COP)</h3>
+                            <p class="text-xs text-slate-500 mt-1 lang-es">PSE, Tarjetas de Crédito, Débito y Puntos Efectivo vía MercadoPago.</p>
+                            <p class="text-xs text-slate-500 mt-1 lang-en">PSE, Credit & Debit Cards in Colombian Pesos via MercadoPago.</p>
+                        </div>
+                        <span class="px-3 py-1 bg-sky-100 text-sky-700 text-xs font-bold rounded-full">MercadoPago LATAM</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                        <button onclick="simulateDonation('MercadoPago', '$50.000 COP')" class="p-5 rounded-2xl border-2 border-slate-100 hover:border-sky-500 hover:bg-sky-50/50 text-center transition-all cursor-pointer">
+                            <span class="block text-2xl font-black text-slate-900">$50.000</span>
+                            <span class="text-xs font-semibold text-slate-500">COP</span>
+                        </button>
+                        <button onclick="simulateDonation('MercadoPago', '$100.000 COP')" class="p-5 rounded-2xl border-2 border-slate-100 hover:border-sky-500 hover:bg-sky-50/50 text-center transition-all cursor-pointer">
+                            <span class="block text-2xl font-black text-slate-900">$100.000</span>
+                            <span class="text-xs font-semibold text-slate-500">COP</span>
+                        </button>
+                        <button onclick="simulateDonation('MercadoPago', 'Monto Personalizado')" class="p-5 rounded-2xl border-2 border-sky-500 bg-sky-50/30 text-center transition-all cursor-pointer">
+                            <span class="block text-2xl font-black text-sky-700">Otro Monto</span>
+                            <span class="text-xs font-semibold text-sky-600">Personalizado</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PAYPAL -->
+                <div id="content-paypal" class="space-y-6 hidden text-center sm:text-left">
+                    <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 lang-es">Donación Internacional (USD / EUR)</h3>
+                            <h3 class="text-xl font-bold text-slate-900 lang-en">International Donation (USD / EUR)</h3>
+                            <p class="text-xs text-slate-500 mt-1 lang-es">Procesamiento seguro e inmediato vía PayPal Global.</p>
+                            <p class="text-xs text-slate-500 mt-1 lang-en">Secure global payment processing via PayPal.</p>
+                        </div>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full">PayPal Global</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                        <button onclick="simulateDonation('PayPal', '$25 USD')" class="p-5 rounded-2xl border-2 border-slate-100 hover:border-blue-500 hover:bg-blue-50/50 text-center transition-all cursor-pointer">
+                            <span class="block text-2xl font-black text-slate-900">$25 USD</span>
+                            <span class="text-xs font-semibold text-slate-500">Kit de Diagnóstico</span>
+                        </button>
+                        <button onclick="simulateDonation('PayPal', '$100 USD')" class="p-5 rounded-2xl border-2 border-slate-100 hover:border-blue-500 hover:bg-blue-50/50 text-center transition-all cursor-pointer">
+                            <span class="block text-2xl font-black text-slate-900">$100 USD</span>
+                            <span class="text-xs font-semibold text-slate-500">Prótesis Pediátrica 3D</span>
+                        </button>
+                        <button onclick="simulateDonation('PayPal', 'Sponsor Mensual')" class="p-5 rounded-2xl border-2 border-blue-500 bg-blue-50/30 text-center transition-all cursor-pointer">
+                            <span class="block text-2xl font-black text-blue-700">Sponsor</span>
+                            <span class="text-xs font-semibold text-blue-600">Aporte Recurrente</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STRIPE -->
+                <div id="content-stripe" class="space-y-6 hidden text-center sm:text-left">
+                    <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div>
+                            <h3 class="text-xl font-bold text-slate-900 lang-es">Tarjeta de Crédito / Débito Global</h3>
+                            <h3 class="text-xl font-bold text-slate-900 lang-en">Global Credit & Debit Card</h3>
+                            <p class="text-xs text-slate-500 mt-1 lang-es">Stripe Checkout con soporte Visa, Mastercard, AMEX, Apple Pay.</p>
+                            <p class="text-xs text-slate-500 mt-1 lang-en">Stripe Checkout supporting AMEX, Apple Pay, Visa, Mastercard.</p>
+                        </div>
+                        <span class="px-3 py-1 bg-indigo-100 text-indigo-700 text-xs font-bold rounded-full">Stripe Secure</span>
+                    </div>
+
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200 text-center space-y-4">
+                        <i data-lucide="lock" class="w-8 h-8 text-indigo-600 mx-auto"></i>
+                        <p class="text-sm font-semibold text-slate-700 lang-es">Haz un aporte seguro con tarjeta internacional.</p>
+                        <p class="text-sm font-semibold text-slate-700 lang-en">Make a secure payment with any international card.</p>
+                        <button onclick="simulateDonation('Stripe', 'Checkout Seguro')" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all cursor-pointer">
+                            Procesar Pago por Stripe
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CRYPTO (BTC / ETH / USDT) -->
+                <div id="content-crypto" class="space-y-6 hidden">
+                    <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h3 class="text-xl font-bold text-slate-900">Crypto-Friendly Donations</h3>
+                                <span class="px-2 py-0.5 bg-amber-100 text-amber-800 text-[10px] font-bold rounded-full">Web3 Science</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-1 lang-es">Aceptamos criptomonedas para financiar investigación de código abierto de forma descentralizada.</p>
+                            <p class="text-xs text-slate-500 mt-1 lang-en">We accept crypto to decentralize open-access medical research funding.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                        <!-- BITCOIN -->
+                        <div class="p-5 rounded-2xl border border-slate-200 bg-slate-50 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span> Bitcoin (BTC)
+                                </span>
+                                <span class="text-[10px] font-mono text-slate-400">BTC Net</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-xl border border-slate-200 font-mono text-[10px] text-slate-600 break-all select-all">
+                                bc1qbear0000biomedicalresearch00000col
+                            </div>
+                            <button onclick="copyWallet('bc1qbear0000biomedicalresearch00000col')" class="w-full py-2 bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1 cursor-pointer">
+                                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar Billetera BTC
+                            </button>
+                        </div>
+
+                        <!-- ETHEREUM -->
+                        <div class="p-5 rounded-2xl border border-slate-200 bg-slate-50 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-indigo-500 inline-block"></span> Ethereum (ETH)
+                                </span>
+                                <span class="text-[10px] font-mono text-slate-400">ERC-20</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-xl border border-slate-200 font-mono text-[10px] text-slate-600 break-all select-all">
+                                0xBEAR88884444BiomedicalFoundation0001
+                            </div>
+                            <button onclick="copyWallet('0xBEAR88884444BiomedicalFoundation0001')" class="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1 cursor-pointer">
+                                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar Wallet ETH
+                            </button>
+                        </div>
+
+                        <!-- USDT / USDC -->
+                        <div class="p-5 rounded-2xl border border-slate-200 bg-slate-50 space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="font-bold text-sm text-slate-900 flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span> USDT / USDC
+                                </span>
+                                <span class="text-[10px] font-mono text-slate-400">TRC-20 / Polygon</span>
+                            </div>
+                            <div class="bg-white p-2 rounded-xl border border-slate-200 font-mono text-[10px] text-slate-600 break-all select-all">
+                                TBEARUsdt9999PediatricHealthResearch
+                            </div>
+                            <button onclick="copyWallet('TBEARUsdt9999PediatricHealthResearch')" class="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-1 cursor-pointer">
+                                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar Wallet USDT
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GOBERNANZA, TRANSPARENCIA Y RTE DIAN -->
+    <section id="gobernanza" class="max-w-5xl mx-auto px-4 py-20 text-center space-y-8">
+        <div class="inline-flex p-4 bg-bear-50 text-bear-700 rounded-3xl border border-bear-200 shadow-sm">
+            <i data-lucide="shield-check" class="w-10 h-10"></i>
+        </div>
+        <h2 class="text-3xl font-black text-slate-900 tracking-tight lang-es">Gobernanza Institucional & Anticorrupción</h2>
+        <h2 class="text-3xl font-black text-slate-900 tracking-tight lang-en">Institutional Governance & Anti-Corruption</h2>
+        
+        <p class="text-slate-600 leading-relaxed max-w-3xl mx-auto text-base sm:text-lg lang-es">
+            Operamos bajo el <strong>Régimen Tributario Especial (RTE)</strong> de la DIAN en Colombia. El 100% de nuestras compras, viáticos y transacciones de laboratorio se procesan mediante <strong>Facturación Electrónica de Venta (FEV)</strong> y normas NIIF/IFRS para auditorías internacionales.
+        </p>
+        <p class="text-slate-600 leading-relaxed max-w-3xl mx-auto text-base sm:text-lg lang-en">
+            Operating under Colombia's Special Tax Regime (RTE). 100% of procurement is processed through electronic invoicing (FEV) under IFRS accounting standards.
+        </p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto text-xs font-bold text-slate-500 uppercase tracking-wider pt-2">
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">RTE DIAN</div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">Normas NIIF</div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">FEV 100%</div>
+            <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">Auditoría Abierta</div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-center sm:text-left">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-bear-600 flex items-center justify-center text-white">
+                        <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="28" cy="28" r="14" fill="#FFFFFF" />
+                            <circle cx="72" cy="28" r="14" fill="#FFFFFF" />
+                            <circle cx="50" cy="52" r="32" fill="#FFFFFF" />
+                            <ellipse cx="50" cy="60" rx="16" ry="12" fill="#0C4A6E" />
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="text-lg font-black text-white tracking-tight">Fundación BEAR</span>
+                        <p class="text-xs text-slate-500">Biomedical Engineering & Applied Research Foundation</p>
+                    </div>
+                </div>
+                <p class="text-xs text-slate-500">
+                    &copy; 2026 Fundación BEAR Colombia. Todos los derechos reservados.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MESSAGE MODAL -->
+    <div id="msg-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-sm w-full p-6 space-y-4 text-center shadow-2xl">
+            <div id="msg-icon" class="w-12 h-12 bg-bear-100 text-bear-600 rounded-2xl flex items-center justify-center mx-auto">
+                <i data-lucide="check-circle" class="w-6 h-6"></i>
+            </div>
+            <h3 id="msg-title" class="text-lg font-bold text-slate-900">Notificación</h3>
+            <p id="msg-body" class="text-xs text-slate-600 leading-relaxed"></p>
+            <button onclick="closeMsgModal()" class="w-full py-2.5 bg-bear-600 hover:bg-bear-700 text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all cursor-pointer">
+                Entendido
+            </button>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE INTERACTIVIDAD -->
+    <script>
+        lucide.createIcons();
+
+        // Multilenguaje
+        function setLanguage(lang) {
+            const elementsEs = document.querySelectorAll('.lang-es');
+            const elementsEn = document.querySelectorAll('.lang-en');
+            const btnEs = document.getElementById('btn-es');
+            const btnEn = document.getElementById('btn-en');
+
+            if (lang === 'es') {
+                elementsEs.forEach(el => el.style.display = 'block');
+                elementsEn.forEach(el => el.style.display = 'none');
+                btnEs.className = "px-2.5 py-1 text-xs font-bold rounded-lg bg-white text-bear-700 shadow-sm transition-all cursor-pointer";
+                btnEn.className = "px-2.5 py-1 text-xs font-bold rounded-lg text-slate-500 hover:text-slate-800 transition-all cursor-pointer";
+            } else {
+                elementsEs.forEach(el => el.style.display = 'none');
+                elementsEn.forEach(el => el.style.display = 'block');
+                btnEs.className = "px-2.5 py-1 text-xs font-bold rounded-lg text-slate-500 hover:text-slate-800 transition-all cursor-pointer";
+                btnEn.className = "px-2.5 py-1 text-xs font-bold rounded-lg bg-white text-bear-700 shadow-sm transition-all cursor-pointer";
+            }
+        }
+
+        // Sistema de Pestañas para Donaciones
+        function switchTab(tab) {
+            const tabs = ['mercadopago', 'paypal', 'stripe', 'crypto'];
+            tabs.forEach(t => {
+                document.getElementById('content-' + t).classList.add('hidden');
+                document.getElementById('tab-' + t).classList.remove('tab-active');
+            });
+
+            document.getElementById('content-' + tab).classList.remove('hidden');
+            document.getElementById('tab-' + tab).classList.add('tab-active');
+        }
+
+        // Copiar Dirección Cripto
+        function copyWallet(address) {
+            const tempInput = document.createElement("input");
+            tempInput.value = address;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            showMsgModal("¡Billetera Copiada!", "La dirección cripto ha sido copiada a tu portapapeles: " + address);
+        }
+
+        // Simulación de Donaciones
+        function simulateDonation(gateway, amount) {
+            showMsgModal("Redirección a " + gateway, "Estás siendo redirigido al entorno seguro de " + gateway + " para procesar la donación por: " + amount);
+        }
+
+        // Modal genérico (sustituto seguro de alert)
+        function showMsgModal(title, body) {
+            document.getElementById('msg-title').innerText = title;
+            document.getElementById('msg-body').innerText = body;
+            document.getElementById('msg-modal').classList.remove('hidden');
+        }
+
+        function closeMsgModal() {
+            document.getElementById('msg-modal').classList.add('hidden');
+        }
+
+        // Inicialización
+        setLanguage('es');
+    </script>
+</body>
+</html>
